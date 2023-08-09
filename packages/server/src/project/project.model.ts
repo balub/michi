@@ -7,4 +7,7 @@ export class Project {
 
   @Field()
   title: string;
+
+  @Field()
+  createdAt: Date;
 }

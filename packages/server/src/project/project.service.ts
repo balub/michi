@@ -8,14 +8,14 @@ export class ProjectService {
 
   async getProject(projectID: string) {
     try {
-      const project = this.prismaService.project.findFirst({
+      const project = this.prismaService.project.findFirstOrThrow({
         where: {
           id: projectID,
         },
       });
       return project;
     } catch (error) {
-      throw new Error(PROJECT_NOT_FOUND);
+      throw error;
     }
   }
 

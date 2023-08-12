@@ -11,6 +11,30 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model User {
+  uid              String    @id @default(cuid())
+  displayName      String?
+  email            String?   @unique
+  photoURL         String?
+  refreshToken     String?
+  providerAccounts Account[]
+  createdOn        DateTime  @default(now()) @db.Timestamp(3)
+}
+
+model Account {
+  id                   String   @id @default(cuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [uid], onDelete: Cascade)
+  provider             String
+  providerAccountId    String
+  providerRefreshToken String?
+  providerAccessToken  String?
+  providerScope        String?
+  loggedIn             DateTime @default(now()) @db.Timestamp(3)
+
+  @@unique(fields: [provider, providerAccountId], name: "verifyProviderAccount")
+}
+
 model Project {
   id        String   @id @default(cuid())
   title     String   @unique

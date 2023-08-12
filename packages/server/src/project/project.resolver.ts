@@ -10,7 +10,11 @@ export class ProjectResolver {
     description: 'Get Project Details',
   })
   async project(@Args('Project_ID') projectID: string) {
-    return await this.projectService.getProject(projectID);
+    try {
+      return await this.projectService.getProject(projectID);
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   @Mutation(() => Project, {

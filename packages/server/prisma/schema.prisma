@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  uid              String    @id @default(cuid())
+  displayName      String?
+  email            String?   @unique
+  photoURL         String?
+  refreshToken     String?
+  providerAccounts Account[]
+  createdOn        DateTime  @default(now()) @db.Timestamp(3)
+}
+
+model Account {
+  id                   String   @id @default(cuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [uid], onDelete: Cascade)
+  provider             String
+  providerAccountId    String
+  providerRefreshToken String?
+  providerAccessToken  String?
+  providerScope        String?
+  loggedIn             DateTime @default(now()) @db.Timestamp(3)
+
+  @@unique(fields: [provider, providerAccountId], name: "verifyProviderAccount")
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  title     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Feature {
+  id         String   @id @default(cuid())
+  feature    String
+  upvotes    Int
+  votedUsers String[]
+  tags       Tags[]
+  createdAt  DateTime @default(now())
+}
+
+model UserRequest {
+  id        String   @id @default(cuid())
+  request   String
+  requestBy String
+  createdAt DateTime @default(now())
+}
+
+enum Tags {
+  IN_PROGRESS
+  BUILT
+  CANCELLED
+  BACKLOG
+  NEWLY_ADDED
+}

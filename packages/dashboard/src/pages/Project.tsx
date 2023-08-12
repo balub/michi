@@ -8,28 +8,28 @@ export default function Project() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="bg-white shadow">
-        <div className="flex justify-between px-28 py-4">
-          <div className="flex justify-start space-x-4">
+    <div className="min-h-screen bg-slate-800">
+      <div className="bg-slate-800 shadow border-b border-slate-700">
+        <div className="flex justify-between px-28 pt-4">
+          <div className="flex justify-start space-x-1">
             <button
               onClick={() => handleTabClick('features')}
               className={`${
-                activeTab === 'features' ? 'bg-indigo-600 text-white' : 'text-indigo-600'
-              } px-3 py-2 rounded-md font-medium focus:outline-none`}
+                activeTab === 'features' ? 'bg-slate-800 text-violet-600 border-b-2 border-violet-600' : 'text-gray-400'
+              } px-3 py-2 font-medium focus:outline-none`}
             >
               View Features
             </button>
             <button
               onClick={() => handleTabClick('submission')}
               className={`${
-                activeTab === 'submission' ? 'bg-indigo-600 text-white' : 'text-indigo-600'
-              } px-3 py-2 rounded-md font-medium focus:outline-none`}
+                activeTab === 'submission' ? 'bg-slate-800 text-violet-600 border-b-2 border-violet-600' : 'text-gray-400'
+              } px-3 py-2 font-medium focus:outline-none`}
             >
               User Submission
             </button>
           </div>
-          <button className='bg-indigo-200 text-indigo-600  px-3 py-2 rounded-md font-medium focus:outline-none'>Project ID</button>
+          <div className='bg-slate-700 text-gray-300 mb-4 px-8 py-2 rounded-md text-xl focus:outline-none'>Project ID</div>
         </div>
       </div>
 

@@ -1,11 +1,15 @@
 import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
+
 @ObjectType()
-export class Project {
+export class UserRequest {
   @Field(() => ID)
   id: string;
 
   @Field()
-  title: string;
+  request: string;
+
+  @Field()
+  requestBy: string;
 
   @Field()
   createdAt: Date;

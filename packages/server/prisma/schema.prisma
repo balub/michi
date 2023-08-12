@@ -18,6 +18,7 @@ model User {
   photoURL         String?
   refreshToken     String?
   providerAccounts Account[]
+  projects         Project[]
   createdOn        DateTime  @default(now()) @db.Timestamp(3)
 }
 
@@ -36,9 +37,13 @@ model Account {
 }
 
 model Project {
-  id        String   @id @default(cuid())
-  title     String   @unique
-  createdAt DateTime @default(now())
+  id           String        @id @default(cuid())
+  title        String        @unique
+  createdAt    DateTime      @default(now())
+  User         User?         @relation(fields: [userUid], references: [uid])
+  userUid      String?
+  features     Feature[]
+  userRequests UserRequest[]
 }
 
 model Feature {
@@ -48,6 +53,8 @@ model Feature {
   votedUsers String[]
   tags       Tags[]
   createdAt  DateTime @default(now())
+  Project    Project? @relation(fields: [projectId], references: [id])
+  projectId  String?
 }
 
 model UserRequest {
@@ -55,6 +62,8 @@ model UserRequest {
   request   String
   requestBy String
   createdAt DateTime @default(now())
+  Project   Project? @relation(fields: [projectId], references: [id])
+  projectId String?
 }
 
 enum Tags {

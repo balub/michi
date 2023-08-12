@@ -19,13 +19,22 @@ export class ProjectService {
     }
   }
 
-  async createNewProject(title: string) {
+  async createNewProject(title: string, userID: string) {
     const createdProject = await this.prismaService.project.create({
       data: {
         title: title,
+        userUid: userID,
       },
     });
 
     return createdProject;
+  }
+
+  async getAllProjects(userID: string) {
+    return await this.prismaService.project.findMany({
+      where: {
+        userUid: userID,
+      },
+    });
   }
 }

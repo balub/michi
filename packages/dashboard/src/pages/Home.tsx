@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 
 const projects = [
   {
@@ -11,16 +10,12 @@ const projects = [
 ];
 
 function Home() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <nav className="bg-indigo-600 p-4 py-6 flex justify-between items-center">
-        <h1 className="text-white text-xl font-semibold">Michi</h1>
-      </nav>
-      <div className="container mx-auto mt-4 px-4 flex flex-col">
+      <div className="container mx-auto mt-4 px-4 flex flex-col px-28">
         <div className="flex justify-end">
-          <button className="bg-red-500 text-white px-3 py-2 rounded-lg">
+          <button className="bg-indigo-200 text-indigo-600  px-3 py-2 rounded-md font-medium focus:outline-none">
             Add Project
           </button>
         </div>

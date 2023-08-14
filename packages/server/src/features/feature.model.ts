@@ -1,4 +1,5 @@
-import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
+import { Field, ID, Int, ObjectType, registerEnumType } from '@nestjs/graphql';
+import { Tags } from 'src/types/Tags';
 
 @ObjectType()
 export class Feature {
@@ -20,3 +21,7 @@ export class Feature {
   @Field()
   createdAt: Date;
 }
+
+registerEnumType(Tags, {
+  name: 'Tags',
+});

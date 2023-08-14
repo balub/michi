@@ -6,9 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -49,7 +48,7 @@ model Project {
 model Feature {
   id         String   @id @default(cuid())
   feature    String
-  upvotes    Int
+  upvotes    Int      @default(0)
   votedUsers String[]
   tags       Tags[]
   createdAt  DateTime @default(now())

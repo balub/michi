@@ -8,7 +8,7 @@ import {
 } from '@nestjs/graphql';
 import { Project } from './project.model';
 import { ProjectService } from './project.service';
-import { Res, UseGuards } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
 import { FeaturesService } from 'src/features/features.service';
 import { GqlUser } from 'src/decorators/gql-user.decorator';

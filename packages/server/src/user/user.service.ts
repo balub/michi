@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { USER_NOT_FOUND } from 'src/errors';
 import { PrismaService } from 'src/prisma.service';
 import { AuthUser } from 'src/types/AuthUser';
-import { User as DbUser } from '@prisma/client';
 
 @Injectable()
 export class UserService {

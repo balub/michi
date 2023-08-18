@@ -20,4 +20,30 @@ export class UserRequestService {
 
     return result;
   }
+
+  async getAllUserRequests(): Promise<UserRequest[]> {
+    return await this.prismaService.userRequest.findMany();
+  }
+
+  async acceptUserRequest(requestId: string): Promise<UserRequest> {
+    return await this.prismaService.userRequest.update({
+      data: {
+        status: true,
+      },
+      where: {
+        id: requestId,
+      },
+    });
+  }
+
+  async rejectUserRequest(requestId: string): Promise<UserRequest> {
+    return await this.prismaService.userRequest.update({
+      data: {
+        status: false,
+      },
+      where: {
+        id: requestId,
+      },
+    });
+  }
 }

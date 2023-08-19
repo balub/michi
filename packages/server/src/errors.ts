@@ -2,7 +2,19 @@
  * Could not find a project
  * (ProjectService)
  */
-export const PROJECT_NOT_FOUND = 'projects/project_could_not_found' as const;
+export const PROJECT_NOT_FOUND = 'projects/project_not_found' as const;
+
+/**
+ * Could not find a feature
+ * (FeatureService)
+ */
+export const FEATURE_NOT_FOUND = 'feature/feature_not_found' as const;
+
+/**
+ * User already voted for feature
+ * (FeatureService)
+ */
+export const USER_ALREADY_VOTED = 'feature/user_already_voted' as const;
 
 /**
  * User does not exist

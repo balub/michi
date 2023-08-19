@@ -26,7 +26,7 @@ export class UserRequestResolver {
   @UseGuards(GqlAuthGuard)
   async acceptUserRequest(@Args('userRequestId') requestId: string) {
     try {
-      return await this.userRequestService.acceptUserRequest(requestId);
+      return await this.userRequestService.userRequestAction(requestId, true);
     } catch (error) {
       throw new Error(error);
     }
@@ -38,7 +38,7 @@ export class UserRequestResolver {
   @UseGuards(GqlAuthGuard)
   async rejectUserRequest(@Args('userRequestId') requestId: string) {
     try {
-      return await this.userRequestService.rejectUserRequest(requestId);
+      return await this.userRequestService.userRequestAction(requestId, false);
     } catch (error) {
       throw new Error(error);
     }

@@ -26,31 +26,18 @@ export class UserRequestService {
     return await this.prismaService.userRequest.findMany();
   }
 
-  async acceptUserRequest(requestId: string): Promise<UserRequest> {
-    return await this.prismaService.userRequest.update({
-      data: {},
-      where: {
-        id: requestId,
-      },
-    });
-  }
+  // async userRequestAction(
+  //   requestId: string,
+  //   action: boolean,
+  // ): Promise<UserRequest> {}
 
-  async rejectUserRequest(requestId: string): Promise<UserRequest> {
-    return await this.prismaService.userRequest.update({
-      data: {},
-      where: {
-        id: requestId,
-      },
-    });
-  }
-
-  async createUserRequest(
-    createUserRequest: CreateUserRequest,
-  ): Promise<UserRequest> {
-    return await this.prismaService.userRequest.create({
-      data: {
-        ...createUserRequest,
-      },
-    });
-  }
+  // async createUserRequest(
+  //   createUserRequest: CreateUserRequest,
+  // ): Promise<UserRequest> {
+  //   return await this.prismaService.userRequest.create({
+  //     data: {
+  //       ...createUserRequest,
+  //     },
+  //   });
+  // }
 }

@@ -54,7 +54,7 @@ export class ProjectResolver {
     description: 'Get Project Details',
   })
   @UseGuards(GqlAuthGuard)
-  async project(@Args('Project_ID') projectID: string) {
+  async project(@Args('projectId') projectID: string) {
     try {
       return await this.projectService.getProject(projectID);
     } catch (error) {

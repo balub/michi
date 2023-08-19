@@ -8,6 +8,6 @@ export class UserRequestController {
 
   @Post()
   async submitRequest(@Body() createUserRequest: CreateUserRequest) {
-    return this.userRequestService.createUserRequest(createUserRequest);
+    // return this.userRequestService.createUserRequest(createUserRequest);
   }
 }

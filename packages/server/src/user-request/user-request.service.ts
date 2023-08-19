@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { UserRequest } from './user-request.model';
+import { CreateUserRequest } from './Dto/create-user-request.dto';
 
 @Injectable()
 export class UserRequestService {
@@ -27,9 +28,7 @@ export class UserRequestService {
 
   async acceptUserRequest(requestId: string): Promise<UserRequest> {
     return await this.prismaService.userRequest.update({
-      data: {
-        status: true,
-      },
+      data: {},
       where: {
         id: requestId,
       },
@@ -38,11 +37,19 @@ export class UserRequestService {
 
   async rejectUserRequest(requestId: string): Promise<UserRequest> {
     return await this.prismaService.userRequest.update({
-      data: {
-        status: false,
-      },
+      data: {},
       where: {
         id: requestId,
+      },
+    });
+  }
+
+  async createUserRequest(
+    createUserRequest: CreateUserRequest,
+  ): Promise<UserRequest> {
+    return await this.prismaService.userRequest.create({
+      data: {
+        ...createUserRequest,
       },
     });
   }

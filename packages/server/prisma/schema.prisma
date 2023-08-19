@@ -60,7 +60,6 @@ model UserRequest {
   id        String   @id @default(cuid())
   request   String
   requestBy String
-  status    Boolean
   createdAt DateTime @default(now())
   Project   Project? @relation(fields: [projectId], references: [id])
   projectId String?

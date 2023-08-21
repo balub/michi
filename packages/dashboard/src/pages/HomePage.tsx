@@ -14,7 +14,7 @@ function HomePage() {
           .map((u, i) => (
             <ProjectCard
               projectID={i.toString()}
-              projectTitle={`Project ${i}`}
+              projectTitle={`Project ${i},${u}`}
             />
           ))}
       </div>

@@ -1,0 +1,67 @@
+@import 'colors.css';
+
+.feature-card{
+    background-color: var(--primary-color);
+    border: 1px solid var(--colors-border);
+    border-radius: 5px;
+    width: 800px;
+    max-width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+
+.feature-card:hover{
+    background: var(--secondary-color);
+}
+
+.feature-card__head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.feature-card__title{
+    color: white;
+    font-family: sans-serif;
+    margin: 0px;
+}
+
+.feature-card__btn{
+    outline: none;
+    background-color: transparent;
+    border: 1px solid var(--colors-border);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+}
+
+.feature-card__btn:hover{
+    border-color: var(--colors-active-border);
+}
+
+.feature-card__arrow{
+    margin-right: 10px;
+}
+
+.feature-card__tag{
+    width: fit-content;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: sans-serif;
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-card__tag-img{
+    margin-left: 10px;
+}

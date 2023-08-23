@@ -65,3 +65,7 @@
 .feature-card__tag-img{
     margin-left: 10px;
 }
+
+.feature-card__tag-wrap{
+    display: flex;
+}

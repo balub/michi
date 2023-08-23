@@ -46,7 +46,7 @@ function RoadMap({
               </button>
             </div>
             {/* tags */}
-            <div>
+            <div className="feature-card__tag-wrap">
               {val?.tags?.map((tag) => {
                 const properties: { [key: string]: any } = {
                   IN_PROGRESS: {
@@ -57,21 +57,21 @@ function RoadMap({
                   },
                   BUILT: {
                     title: "Built",
-                    img: "/progress.svg",
-                    color: "#ffe664",
-                    borderColor: "rgba(255, 230, 100, 0.2)",
+                    img: "/built.svg",
+                    color: "#8c25e5",
+                    borderColor: "rgba(114, 97, 220, 0.4)",
                   },
                   CANCELLED: {
                     title: "Cancelled",
-                    img: "/progress.svg",
-                    color: "#ffe664",
-                    borderColor: "rgba(255, 230, 100, 0.2)",
+                    img: "/cancel.svg",
+                    color: "#C70039",
+                    borderColor: "rgba(199, 0, 57,0.4)",
                   },
                   BACKLOG: {
                     title: "Backlog",
-                    img: "/progress.svg",
-                    color: "#ffe664",
-                    borderColor: "rgba(255, 230, 100, 0.2)",
+                    img: "/backlog.svg",
+                    color: "#FFA1E0",
+                    borderColor: "rgba(255, 161, 224,0.3)",
                   },
                   NEWLY_ADDED: {
                     title: "Newly added",

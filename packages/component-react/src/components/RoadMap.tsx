@@ -39,7 +39,7 @@ function RoadMap({
             {/* title */}
             <div className="feature-card__head">
               <h2 className="feature-card__title">{val?.feature}</h2>
-              <button className="feature-card__btn">
+              <button className="feature-card__btn" onClick={()=>{console.log(val?.id)}}>
                 <span className="feature-card__title feature-card__arrow">
                   ▲
                 </span>

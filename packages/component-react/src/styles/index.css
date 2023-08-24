@@ -1,0 +1,246 @@
+@import "colors.css";
+
+/* features */
+.feature-card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--colors-border);
+  border-radius: 5px;
+  width: 800px;
+  max-width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  transition: all ease-in 0.2s;
+}
+
+.feature-card:hover {
+  background: var(--secondary-color);
+}
+
+.feature-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.feature-card__title {
+  color: white;
+  font-family: sans-serif;
+  margin: 0px;
+}
+
+.feature-card__btn {
+  outline: none;
+  background-color: transparent;
+  border: 1px solid var(--colors-border);
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70px;
+  height: 30px;
+  transition: all ease-in 0.2s;
+}
+
+.feature-card__btn:hover {
+  border-color: var(--colors-active-border);
+}
+
+.feature-card__arrow {
+  margin-right: 10px;
+}
+
+.feature-card__tag {
+  width: fit-content;
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: sans-serif;
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-card__tag-img {
+  margin-left: 10px;
+}
+
+.feature-card__tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* features end */
+
+/* modal */
+
+.modal {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  resize: vertical;
+}
+.modal-root {
+  width: 500px;
+  max-width: 80%;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #131316;
+  border: 2px solid #363739;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modal-root__title {
+  font-family: sans-serif;
+  color: white;
+  margin: 0px;
+  margin-bottom: 12px;
+}
+
+.modal-root input {
+  outline: none;
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 10px 5px;
+  font-family: sans-serif;
+  border: 1px solid #363739;
+}
+
+.modal__footer {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal__submit-btn {
+  padding: 8px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all ease-in 0.2s;
+}
+
+.modal__submit-btn:hover {
+  color: #64ff8f;
+  border-color: rgba(100, 255, 143, 0.2);
+}
+
+.modal__cancel-btn {
+  padding: 8px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all ease-in 0.2s;
+}
+
+.modal__cancel-btn:hover {
+  color: #c70039;
+  border-color: rgba(199, 0, 57, 0.4);
+}
+
+/* modal end */
+
+/* filter */
+
+.filter {
+  width: 800px;
+  max-width: 100%;
+  margin: auto auto 20px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter__title {
+  margin: 10px 20px 0px;
+  font-family: sans-serif;
+  cursor: pointer;
+  color: white;
+  white-space: nowrap;
+}
+
+/* filter end */
+
+/* popup */
+.popup {
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.5);
+  min-height: 80px;
+  border-radius: 8px;
+  animation: slideUp 5s linear forwards;
+}
+
+.popup__head {
+  background: #19a05f;
+  height: 10px;
+  margin-bottom: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.popup__title {
+  font-family: sans-serif;
+  color: white;
+  margin: 10px;
+  margin-bottom: 5px;
+  font-size: medium;
+}
+
+.popup__subtitle {
+  font-family: sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0px 10px;
+  font-size: x-small;
+}
+
+@keyframes slideUp {
+    /* from {background-color: red;}
+    to {background-color: yellow;} */
+    0% {
+        bottom: 50px;
+        opacity: 0;
+    }
+
+    30% {
+        bottom: 10px;
+        opacity: 1;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+  }
+/* popup end */

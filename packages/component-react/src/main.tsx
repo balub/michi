@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import RoadMap from './components/RoadMap'
+import RoadMap from './core'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

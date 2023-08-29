@@ -1,0 +1,67 @@
+services:
+  dashboard:
+    container_name: michi-dashboard
+    build:
+      dockerfile: packages/dashboard/Dockerfile
+      context: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./packages/dashboard:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    env_file:
+      - ./.env
+    depends_on:
+      - server
+    networks:
+      - dashboard-server
+
+  server:
+    container_name: michi-backend
+    restart: always
+    build:
+      dockerfile: packages/server/Dockerfile
+      context: .
+      target: dev
+    volumes:
+      - ./packages/server:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - ./.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:testpass@postgres:5432/postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - server-db
+      - dashboard-server
+    ports:
+      - 4000:4000
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    user: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=testpass
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - server-db
+
+volumes:
+  db-data:
+
+
+networks:
+  dashboard-server:
+  server-db:

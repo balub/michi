@@ -5,12 +5,11 @@ RUN npm install -g pnpm
 # Dependencies install stage
 FROM base as build
 WORKDIR /usr/src/app
-COPY package.json . 
-RUN pnpm install 
-COPY . .
+COPY ./packages/dashboard  .
+RUN pnpm install
 RUN pnpm run build
 
-FROM node:18-alpine as final
+FROM node:18-alpine as prod
 ENV NODE_ENV production
 COPY package.json .
 COPY --from=build /usr/src/app/node_modules ./node_modules

@@ -23,7 +23,7 @@ services:
     build:
       dockerfile: packages/server/Dockerfile
       context: .
-      target: dev
+      target: prod
     volumes:
       - ./packages/server:/usr/src/app
       - /usr/src/app/node_modules

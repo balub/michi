@@ -9,11 +9,8 @@ COPY ./packages/dashboard  .
 RUN pnpm install
 RUN pnpm run build
 
-FROM node:18-alpine as prod
-ENV NODE_ENV production
-COPY package.json .
-COPY --from=build /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/dist ./dist
-RUN npm i -g serve
-EXPOSE 3000
-CMD ["serve","./dist"]
+FROM caddy:2-alpine as prod
+COPY ./packages/dashboard/Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /usr/src/app/dist dist
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+EXPOSE 8080

@@ -5,15 +5,15 @@ services:
       dockerfile: packages/dashboard/Dockerfile
       context: .
     ports:
-      - 3000:3000
+      - 3000:8080
     volumes:
       - ./packages/dashboard:/usr/src/app
       - /usr/src/app/node_modules
     restart: always
     env_file:
       - ./.env
-    depends_on:
-      - server
+    # depends_on:
+    #   - server
     networks:
       - dashboard-server
 

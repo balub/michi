@@ -1,0 +1,4 @@
+:8080 {
+  root * /usr/src/app/dist
+  file_server
+}

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 
 import Container from "@/components/container";
+import { signInUserWithGithub, signInUserWithGoogle } from "@/helpers/auth";
 
 function LoginScreen() {
   return (
@@ -13,11 +14,19 @@ function LoginScreen() {
               Login to Dashboard
             </h1>
           </div>
-          <Button variant="outline" type="button">
+          <Button
+            variant="outline"
+            type="button"
+            onClick={signInUserWithGoogle}
+          >
             <Icons.gitHub className="mr-2 h-4 w-4" />
             Google
           </Button>
-          <Button variant="outline" type="button">
+          <Button 
+            variant="outline"
+            type="button"
+            onClick={signInUserWithGithub}
+          >
             <Icons.gitHub className="mr-2 h-4 w-4" />
             Github
           </Button>

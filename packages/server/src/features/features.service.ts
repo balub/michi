@@ -3,8 +3,13 @@ import { PrismaService } from 'src/prisma.service';
 import { Feature } from './feature.model';
 import { Project } from 'src/project/project.model';
 import { Tags } from 'src/types/Tags';
-import { FEATURE_NOT_FOUND, USER_ALREADY_VOTED } from 'src/errors';
+import {
+  FEATURE_NOT_FOUND,
+  USER_ALREADY_VOTED,
+  USER_EMAIL_INVALID,
+} from 'src/errors';
 import { Prisma } from '@prisma/client';
+import { validateEmail } from 'src/utils';
 
 @Injectable()
 export class FeaturesService {
@@ -103,6 +108,8 @@ export class FeaturesService {
 
   async voteForFeature(featureID: string, userEmail: string) {
     try {
+      if (!validateEmail(userEmail)) throw new Error(USER_EMAIL_INVALID);
+
       const feature = await this.getFeature(featureID);
 
       if (feature.votedUsers.includes(userEmail)) {

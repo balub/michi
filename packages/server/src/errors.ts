@@ -39,3 +39,16 @@ export const INVALID_ACCESS_TOKEN = 'auth/invalid_access_token' as const;
  * (AuthService)
  */
 export const INVALID_REFRESH_TOKEN = 'auth/invalid_refresh_token' as const;
+
+/**
+ * User Request was not found
+ * (UserRequestService)
+ */
+export const USER_REQUEST_NOT_FOUND =
+  'userRequest/user_request_not_found' as const;
+
+/**
+ * Users email was invalid
+ * (UserRequestService)
+ */
+export const USER_EMAIL_INVALID = 'userRequest/user_email_is_invalid' as const;

@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster";
+
 import LoginScreen from "./pages/LoginScreen";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
@@ -30,7 +32,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Toaster />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

@@ -9,3 +9,27 @@ export const LIST_ALL_PROJECTS = gql`
     }
   }
 `;
+
+export const LIST_PROJECT_INFO = gql`
+  query Project($projectId: String!) {
+    project(projectID: $projectId) {
+      id
+      title
+      createdAt
+      features {
+        id
+        feature
+        upvotes
+        votedUsers
+        tags
+        createdAt
+      }
+      userRequests {
+        id
+        request
+        requestBy
+        createdAt
+      }
+    }
+  }
+`;

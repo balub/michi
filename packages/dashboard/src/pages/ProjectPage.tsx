@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { LIST_PROJECT_INFO } from "@/helpers/backend/queries";
 import { useToast } from "@/components/ui/use-toast";
+import NewFeatureDialog from "@/components/NewFeatureDialog";
 
 function ProjectPage() {
   const params = useParams();
@@ -32,14 +33,17 @@ function ProjectPage() {
       title={data.project.title}
       actionElement={<Button onClick={handleClick}>PROJECT ID</Button>}
     >
-      <Tabs defaultValue="account">
+      <Tabs defaultValue="features">
         <TabsList>
           <TabsTrigger value="features">Features</TabsTrigger>
           <TabsTrigger value="user_requests">User Requests</TabsTrigger>
           <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
         <TabsContent value="features">
-          <FeaturesTable data={data.project.features} />
+          <>
+            <NewFeatureDialog projectID={params.projectID} />
+            <FeaturesTable data={data.project.features} />
+          </>
         </TabsContent>
         <TabsContent value="user_requests">
           <UserRequestsTable data={data.project.userRequests} />

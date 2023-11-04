@@ -4,6 +4,6 @@ import RoadMap from './core'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RoadMap token='clll0sl110006w52kqmnqe70l' showTags/>
+    <RoadMap token='clojt07kh0003oyis9m4hir54' showTags/>
   </React.StrictMode>,
 )

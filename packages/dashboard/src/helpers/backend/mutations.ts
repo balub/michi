@@ -23,3 +23,19 @@ export const REJECT_USER_REQUEST = gql`
     rejectUserRequest(userRequestId: $userRequestId)
   }
 `;
+
+export const CREATE_NEW_FEATURE = gql`
+  mutation CreateFeature(
+    $featureTitle: String!
+    $projectId: String!
+    $tags: [Tags!]!
+  ) {
+    createFeature(
+      featureTitle: $featureTitle
+      projectID: $projectId
+      tags: $tags
+    ) {
+      id
+    }
+  }
+`;

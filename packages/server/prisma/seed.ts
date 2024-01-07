@@ -66,7 +66,7 @@ async function main() {
   for (let index = 0; index <= PROJECT_COUNT; index++) {
     const data = await createProject(
       `Project ${index}`,
-      'cloxs1fh00000oyap9wdo4mnr',
+      'clp1wzfxn0000oyk2jax12qg6',
     );
     projectIDList.push(data.id);
   }
